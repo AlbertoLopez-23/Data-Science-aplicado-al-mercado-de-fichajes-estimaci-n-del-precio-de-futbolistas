@@ -1,13 +1,18 @@
-- Opinion sobre las bases de datos:
+# Opinion sobre las bases de datos:
+
 
 Recordar poner no_store=True para que no lo almacene en local home/user/sofascore
+
+---
 **ESPN:**
 Creo que esta no vale la pena porque FBREF es simplemnente mejor
+
 1. Habría que hacer un bucle donde primero ejecutamos espn.read_schedule()
 2. Los ids obtenidos del paso 1 los iterariamso en espn.read_matchsheet(match_id={}) **Es mejor el de FBref**
 3. Iteramos los ids por espn.read_lineup(match_id={}) y obtenemos la información detallada de cada juagdor.
 
 Obtendriamos las estadistcias base del partido (2), y las estadísticas básicas de cada jugador (3).
+
 
 **FBref:**
 Tiene dos funciones:
