@@ -1,0 +1,4 @@
+pandas==2.2.2
+lxml==4.9.3
+soccerdata
+setuptools==70.0.0
