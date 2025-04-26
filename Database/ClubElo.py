@@ -20,27 +20,12 @@ def create_output_dir(source_name="ClubElo"):
     
     return source_dir
 
-def setup_soccerdata_dir():
-    """Configurar el directorio de caché de soccerdata en el directorio local"""
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    cache_dir = os.path.join(current_dir, "soccerdata")
-    if not os.path.exists(cache_dir):
-        os.makedirs(cache_dir)
-    
-    # Establecer la variable de entorno para soccerdata
-    os.environ['SOCCERDATA_DIR'] = cache_dir
-    
-    # Establecer para que no almacene datos
-    os.environ['SOCCERDATA_NOSTORE'] = "True"
-    
-    return cache_dir
-
 def get_current_elo(output_dir):
     """Obtiene los datos de ELO actuales para todos los equipos"""
     # Configurar la ubicación de la caché de datos
-    setup_soccerdata_dir()
+
     
-    elo = ClubElo()
+    elo = ClubElo(no_store=True)
     current_elo = elo.read_by_date()
     
     # Convertir el índice (nombres de equipos) a una columna antes de guardar
@@ -59,9 +44,8 @@ def get_current_elo(output_dir):
 def get_team_elo_history(output_dir, team_name="Barcelona"):
     """Obtiene el historial de ELO para un equipo específico"""
     # Configurar la ubicación de la caché de datos
-    setup_soccerdata_dir()
     
-    elo = ClubElo()
+    elo = ClubElo(no_store=True)
     team_history = elo.read_team_history(team_name)
     
     # Convertir el índice a una columna antes de guardar

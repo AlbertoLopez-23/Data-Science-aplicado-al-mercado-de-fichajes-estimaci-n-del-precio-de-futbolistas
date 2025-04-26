@@ -33,7 +33,7 @@ def setup_soccerdata_dir():
 
 def get_team_season_stats(output_dir, leagues="ENG-Premier League", seasons=2021, stat_type="passing"):
     """Obtiene estadísticas de temporada por equipo"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     team_stats = fbref.read_team_season_stats(stat_type=stat_type)
     
     # Convertir el índice a columnas
@@ -51,7 +51,7 @@ def get_team_season_stats(output_dir, leagues="ENG-Premier League", seasons=2021
 
 def get_team_match_stats(output_dir, team="Manchester City", leagues="ENG-Premier League", seasons=2021, stat_type="schedule"):
     """Obtiene estadísticas de partidos por equipo"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     match_stats = fbref.read_team_match_stats(stat_type=stat_type, team=team)
     
     # Convertir el índice a columnas
@@ -69,7 +69,7 @@ def get_team_match_stats(output_dir, team="Manchester City", leagues="ENG-Premie
 
 def get_player_season_stats(output_dir, leagues="ENG-Premier League", seasons=2021, stat_type="standard"):
     """Obtiene estadísticas de temporada por jugador"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     player_stats = fbref.read_player_season_stats(stat_type=stat_type)
     
     # Convertir el índice a columnas
@@ -87,7 +87,7 @@ def get_player_season_stats(output_dir, leagues="ENG-Premier League", seasons=20
 
 def get_player_match_stats(output_dir, match_id, leagues="ENG-Premier League", seasons=2021, stat_type="passing"):
     """Obtiene estadísticas de partidos por jugador para un partido específico"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     player_match_stats = fbref.read_player_match_stats(stat_type=stat_type, match_id=match_id)
     
     # Convertir el índice a columnas
@@ -105,7 +105,7 @@ def get_player_match_stats(output_dir, match_id, leagues="ENG-Premier League", s
 
 def get_schedule(output_dir, leagues="ENG-Premier League", seasons=2021):
     """Obtiene el calendario de partidos"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     schedule = fbref.read_schedule()
     
     # Convertir el índice a columnas
@@ -123,7 +123,7 @@ def get_schedule(output_dir, leagues="ENG-Premier League", seasons=2021):
 
 def get_lineup(output_dir, match_id, leagues="ENG-Premier League", seasons=2021):
     """Obtiene las alineaciones de un partido específico"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     lineup = fbref.read_lineup(match_id=match_id)
     
     # Convertir el índice a columnas
@@ -141,7 +141,7 @@ def get_lineup(output_dir, match_id, leagues="ENG-Premier League", seasons=2021)
 
 def get_events(output_dir, match_id, leagues="ENG-Premier League", seasons=2021):
     """Obtiene los eventos de un partido específico"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     events = fbref.read_events(match_id=match_id)
     
     # Convertir el índice a columnas
@@ -159,7 +159,7 @@ def get_events(output_dir, match_id, leagues="ENG-Premier League", seasons=2021)
 
 def get_shot_events(output_dir, match_id, leagues="ENG-Premier League", seasons=2021):
     """Obtiene los eventos de tiros de un partido específico"""
-    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_cache=True)
+    fbref = sd.FBref(leagues=leagues, seasons=seasons, no_store=True)
     shots = fbref.read_shot_events(match_id=match_id)
     
     # Convertir el índice a columnas
